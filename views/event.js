@@ -5,16 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemContainers = document.querySelectorAll('.item-container');
 
     itemContainers.forEach((container, index) => {
-        console.log(container)
         const item = container.querySelector('.item');
 
         item.addEventListener('click', async function () {
             const clickedItem = this.textContent.trim();
-            const itemNameWithoutExtension = clickedItem.split('.').slice(0, -1).join('.');
-            const newItemPath = `/assets/musics/${clickedItem}`;
+            const newItemPath = `/assets/musics/${clickedItem}.mp3`;
             audioPlayer.src = newItemPath;
-            albumCover.src = `/assets/imgs/${itemNameWithoutExtension}.webp`;
-            songTitle.textContent = `Musica ${itemNameWithoutExtension}`;
+            albumCover.src = `/assets/imgs/${clickedItem}.webp`;
+            songTitle.textContent = `Musica ${clickedItem}`;
         });
     });
 });

@@ -100,28 +100,14 @@
     </style>
     <title>Music Player</title>
 </head>
-<script src="/views/event.js"></script>
-
 <body>
     <div class="music-player">
-        <h1>Lista de Musicas</h1>
-        <h2>Clique em uma musica para selecionar</h2>
-        <div class="container">
-            <% items.forEach((item, index)=> { %>
-                <div class="item-container">
-                    <div class="play-button">&#9658;</div>
-                    <div class="item" id="item-<%= index %>">
-                        <%= item.name %>
-                    </div>
-                </div>
-                <% }); %>
-        </div>
         <div class="album-cover">
-            <img id="album-cover-image" src="/assets/imgs/allthat.webp" alt="Capa do Álbum">
+            <img id="album-cover-image" src="<%= item.album %>" alt="Capa do Álbum">
         </div>
         <h2 class="song-title">Musica allthat</h2>
         <audio id="audio-player" controls>
-            <source src="/assets/musics/allthat.mp3" type="audio/mp3">
+            <source src="<%= item.path %>" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
     </div>
