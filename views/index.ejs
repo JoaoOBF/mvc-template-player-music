@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .music-player {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 10px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .album-cover {
+            width: 150px;
+            height: 150px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .album-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .song-title {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 24px;
+            height: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .play-button {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .item {
+            font-size: 18px;
+        }
+    </style>
+    <title>Music Player</title>
+</head>
+<script src="/views/event.js"></script>
+
+<body>
+    <div class="music-player">
+        <h1>Lista de Musicas</h1>
+        <h2>Clique em uma musica para selecionar</h2>
+        <div class="container">
+            <% items.forEach((item, index)=> { %>
+                <div class="item-container">
+                    <div class="play-button">&#9658;</div>
+                    <div class="item" id="item-<%= index %>">
+                        <%= item %>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <div class="album-cover">
+            <img id="album-cover-image" src="/assets/imgs/allthat.webp" alt="Capa do Álbum">
+        </div>
+        <h2 class="song-title">Musica allthat</h2>
+        <audio id="audio-player" controls>
+            <source src="/assets/musics/allthat.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</body>
+
+</html>
